@@ -57,6 +57,45 @@ root.render(<Header favcol="yellow"/>);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
+class Header extends React.Component {
+  render() {
+    return (
+      <h1>This is the content of the Header component</h1>
+    );
+  }
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Header />);
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Result Size: 834 x 653
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: "red"};
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {favoritecolor: props.favcol };
+  }
+  render() {
+    return (
+      <h1>My Favorite Color is {this.state.favoritecolor}</h1>
+    );
+  }
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Header favcol="yellow"/>);
+
+              
+            
 
             
